@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.GET('/', (req, res) => {
+app.get('/', (req, res) => {
   res.send('Inventory App is running');
 });
 
