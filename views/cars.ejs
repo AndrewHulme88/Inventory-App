@@ -7,6 +7,12 @@
   </head>
   <body>
     <h1>Car Inventory</h1>
+
+    <nav>
+      <a href="/">Home</a>
+      <a href="/cars">Car Inventory</a>
+    </nav>
+
     <table border="1">
       <tr>
         <th>ID</th>
@@ -27,5 +33,25 @@
         </tr>
       <% }); %>
     </table>
+
+    <h2>Add a New Car:</h2>
+    <form action="/cars" method="POST">
+      <label for="make">Make:</label>
+      <input type="text" name="make" required><br>
+
+      <label for="model">Model:</label>
+      <input type="text" name="model" required><br>
+
+      <label for="year">Year:</label>
+      <input type="number" name="year" required><br>
+
+      <label for="colour">Colour:</label>
+      <input type="text" name="colour"><br>
+
+      <label for="quantity">Quantity:</label>
+      <input type="number" name="quantity" required><br>
+
+      <button type="submit">Add Car</button>
+    </form>
   </body>
 </html>

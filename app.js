@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/cars', carRoutes);
 
 app.get('/', (req, res) => {
-  res.send('Welcome to the Car Inventory App!');
+  res.render('home');
 });
 
 app.listen(PORT, () => {
