@@ -12,6 +12,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/cars', carRoutes);
 
+app.use(express.static('public'));
+
 app.get('/', (req, res) => {
   res.render('home');
 });
