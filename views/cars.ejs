@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Inventory</title>
     <link rel="stylesheet" href="/styles/styles.css">
   </head>
@@ -14,25 +14,19 @@
       <a href="/cars">Car Inventory</a>
     </nav>
 
-    <table border="1">
-      <tr>
-        <th>ID</th>
-        <th>Make</th>
-        <th>Model</th>
-        <th>Year</th>
-      </tr>
+    <ul>
       <% cars.forEach(car => { %>
-        <tr>
-          <td><%= car.id %></td>
-          <td><%= car.make %></td>
-          <td><%= car.model %></td>
-          <td><%= car.year %></td>
-        </tr>
+        <li>
+          <strong><%= car.make %> <%= car.model %> (<%= car.year %>)</strong>
+          <form action="/cars/delete/<%= car.id %>" method="post" style="display:inline;">
+            <button type="submit">Delete</button>
+          </form>
+        </li>
       <% }); %>
-    </table>
+    </ul>
 
     <h2>Add a New Car:</h2>
-    <form action="/cars" method="POST">
+    <form action="/cars/add" method="POST">
       <label for="make">Make:</label>
       <input type="text" name="make" required><br>
 

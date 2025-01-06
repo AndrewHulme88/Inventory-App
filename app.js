@@ -14,6 +14,11 @@ app.use('/cars', carRoutes);
 
 app.use(express.static('public'));
 
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`); // Logs every request
+  next();
+});
+
 app.get('/', (req, res) => {
   res.render('home');
 });

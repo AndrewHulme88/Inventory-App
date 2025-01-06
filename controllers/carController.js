@@ -14,12 +14,24 @@ exports.addCar = async (req, res) => {
   const { make, model, year } = req.body;
   try {
     const result = await pool.query(
-      'INSERT INTO cars (make, model, year) VALUES ($1, $2, $3) RETURNING *',
-      [make, model, year]
+      'INSERT INTO cars (make, model, year, quantity) VALUES ($1, $2, $3, $4) RETURNING *',
+      [make, model, year, 0]
     );
-    res.status(201).json(result.rows[0]);
+    res.redirect('/cars');
   } catch (err) {
     console.error('Error adding car:', err);
     res.status(500).json({ error: 'Failed to add car' });
+  }
+};
+
+
+exports.deleteCar = async (req, res) => {
+  const { id } = req.params;
+  try {
+    await pool.query('DELETE FROM cars WHERE id = $1', [id]);
+    res.redirect('/cars');
+  } catch (err) {
+    console.error('Error deleting car:', err);
+    res.status(500).json({ error: 'Failed to delete car' });
   }
 };
