@@ -20,8 +20,6 @@
         <th>Make</th>
         <th>Model</th>
         <th>Year</th>
-        <th>Colour</th>
-        <th>Quantity</th>
       </tr>
       <% cars.forEach(car => { %>
         <tr>
@@ -29,8 +27,6 @@
           <td><%= car.make %></td>
           <td><%= car.model %></td>
           <td><%= car.year %></td>
-          <td><%= car.colour %></td>
-          <td><%= car.quantity %></td>
         </tr>
       <% }); %>
     </table>
@@ -45,12 +41,6 @@
 
       <label for="year">Year:</label>
       <input type="number" name="year" required><br>
-
-      <label for="colour">Colour:</label>
-      <input type="text" name="colour"><br>
-
-      <label for="quantity">Quantity:</label>
-      <input type="number" name="quantity" required><br>
 
       <button type="submit">Add Car</button>
     </form>

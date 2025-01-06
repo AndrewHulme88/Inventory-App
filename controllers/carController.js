@@ -11,11 +11,11 @@ exports.viewCars = async (req, res) => {
 };
 
 exports.addCar = async (req, res) => {
-  const { make, model, year, colour, quantity } = req.body;
+  const { make, model, year } = req.body;
   try {
     const result = await pool.query(
-      'INSERT INTO cars (make, model, year, colour, quantity) VALUES ($1, $2, $3, $4, $5) RETURNING *',
-      [make, model, year, colour, quantity]
+      'INSERT INTO cars (make, model, year) VALUES ($1, $2, $3) RETURNING *',
+      [make, model, year]
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
