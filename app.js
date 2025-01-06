@@ -1,5 +1,5 @@
 const express = require('express');
-const { Pool } = require('pg');
+const carRoutes = require('./routes/carRoutes');
 require('dotenv').config();
 
 const app = express();
@@ -9,7 +9,12 @@ const pool = new Pool({
   connectionString: process.env.DATABASEURL || 'postgresql://user:password@localhost:5432/inventory_db', //need to update with my details
 });
 
+app.set('view engine', 'ejs');
+
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use('/cars', carRoutes);
 
 app.get('/', (req, res) => {
   res.send('Welcome to the Car Inventory App!');
