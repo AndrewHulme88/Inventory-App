@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Car</title>
+    <title>Add Car</title>
     <link rel="stylesheet" href="/styles/styles.css">
   </head>
   <body>
-    <h1>Edit Car</h1>
+    <h1>Add a Car</h1>
 
     <nav>
       <a href="/">Home</a>
@@ -15,18 +15,18 @@
       <a href="/cars/add">Add a Car</a>
     </nav>
 
-    <form action="/cars/edit/<%= car.id %>" method="post">
+    <h2>Add a New Car:</h2>
+    <form action="/cars/add" method="post">
       <label for="make">Make:</label>
-      <input type="text" name="make" value="<%= car.make %>" required>
-      <br>
-      <label for="model">Model:</label>
-      <input type="text" name="model" value="<%= car.model %>" required>
-      <br>
-      <label for="year">Year:</label>
-      <input type="text" name="year" value="<%= car.year %>" required>
-      <br>
-      <button type="submit">Update Car</button>
-    </form>
+      <input type="text" name="make" required><br>
 
+      <label for="model">Model:</label>
+      <input type="text" name="model" required><br>
+
+      <label for="year">Year:</label>
+      <input type="number" name="year" required><br>
+
+      <button type="submit">Add Car</button>
+    </form>
   </body>
 </html>

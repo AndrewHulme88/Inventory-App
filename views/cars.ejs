@@ -12,6 +12,7 @@
     <nav>
       <a href="/">Home</a>
       <a href="/cars">Car Inventory</a>
+      <a href="/cars/add">Add a Car</a>
     </nav>
 
     <ul>
@@ -25,19 +26,5 @@
         </li>
       <% }); %>
     </ul>
-
-    <h2>Add a New Car:</h2>
-    <form action="/cars/add" method="POST">
-      <label for="make">Make:</label>
-      <input type="text" name="make" required><br>
-
-      <label for="model">Model:</label>
-      <input type="text" name="model" required><br>
-
-      <label for="year">Year:</label>
-      <input type="number" name="year" required><br>
-
-      <button type="submit">Add Car</button>
-    </form>
   </body>
 </html>
